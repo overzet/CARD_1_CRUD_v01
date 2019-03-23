@@ -1,92 +1,30 @@
 package dao;
 
-import model.Customer;
-
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-
-public class CustomerDao {
-    // JDBC driver name and database URL
-    static final String JDBC_DRIVER = "org.h2.Driver";
-    static final String DB_URL = "jdbc:h2:~/customer";
-
-    //  Database credentials
-    static final String USER = "";
-    static final String PASS = "";
-
-    public static Connection getConnection() throws SQLException {
-
-        Connection conn = null;
-        Statement stmt = null;
-
-            System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            return conn;
-        }
-        try {
-            // STEP 1: Register JDBC driver
-            Class.forName(JDBC_DRIVER);
-
-            //STEP 2: Open a connection
-            System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
-
-            //STEP 3: Execute a query
-//            System.out.println("Creating table in given database...");
-//            stmt = conn.createStatement();
-//            String sql =  "CREATE TABLE   REGISTRATION " +
-//                    "(id INTEGER not NULL, " +
-//                    " first VARCHAR(255), " +
-//                    " last VARCHAR(255), " +
-//                    " age INTEGER, " +
-//                    " PRIMARY KEY ( id ))";
-//            stmt.executeUpdate(sql);
-//            System.out.println("Created table in given database...");
-
-            // STEP 4: Clean-up environment
-            stmt.close();
-            conn.close();
-        } catch(SQLException se) {
-            //Handle errors for JDBC
-            se.printStackTrace();
-        } catch(Exception e) {
-            //Handle errors for Class.forName
-            e.printStackTrace();
-        } finally {
-            //finally block used to close resources
-            try{
-                if(stmt!=null) stmt.close();
-            } catch(SQLException se2) {
-            } // nothing we can do
-            try {
-                if(conn!=null) conn.close();
-            } catch(SQLException se){
-                se.printStackTrace();
-            } //end finally try
-        } //end try
-        System.out.println("Goodbye!");
-    }
-                                             // C-R-U-D
-
-    // Method to create/insert customer
-    public void createCustomer(int id, String firstName, String lastName) throws SQLException {
+public class CustomerDao {}
 
 
-        PreparedStatement stmt = getConnection().prepareStatement("INSERT into CUSTOMERS values (?,?,?)");
 
-        stmt.setInt(1, id);
-        stmt.setString(2, firstName);
-        stmt.setString(3, lastName);
+     /*   // C-R-U-D
 
-        int insertion = stmt.executeUpdate();
+        // Method to create customer
+        public void createCustomer ( int id, String firstName, String lastName) throws SQLException {
 
-        if (insertion != 0) {
-            System.out.println("Inserted");
-        } else {
-            System.out.println("not Inserted");
+            PreparedStatement stmt = getConnection().prepareStatement("INSERT into CUSTOMERS values (?,?,?)");
+
+            stmt.setInt(1, id);
+            stmt.setString(2, firstName);
+            stmt.setString(3, lastName);
+
+            int insertion = stmt.executeUpdate();
+
+            if (insertion != 0) {
+                System.out.println("Inserted");
+            } else {
+                System.out.println("not Inserted");
+            }
         }
     }
+
 
     // Method to update customer
     public void updateCustomer(int id, String firstName, String lastName) throws SQLException {
@@ -172,6 +110,7 @@ public class CustomerDao {
     }
 
     public void saveCustomer(Customer customer) {
-    }
-}
 
+        }
+    }
+*/

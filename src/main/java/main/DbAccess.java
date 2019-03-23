@@ -14,13 +14,15 @@ public class DbAccess {
             e.printStackTrace();
         }
     }
+
                                   // C-R-U-D
     // Method to create customer
-    public void createCustomer ( int id, String firstName, String lastName) throws SQLException {
+    public void createCustomer (int id, String firstName, String lastName, Connection connection ) throws SQLException {
 
-        PreparedStatement stmt = connection().prepareStatement("INSERT into customer values (?,?,?)");
 
-        stmt.setInt(1, 2);
+        PreparedStatement stmt = connection.prepareStatement("INSERT into customers values (?,?,?)");
+
+        stmt.setInt(1, 22);
         stmt.setString(2, "James");
         stmt.setString(3, "Baldwin");
 
