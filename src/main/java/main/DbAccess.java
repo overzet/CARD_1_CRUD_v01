@@ -6,21 +6,34 @@ public class DbAccess {
 
     public static void main(String[] args) throws Exception {
 
+        String columnNamePattern = null;
+
+        ResultSet resultSet = null;
+
         try (Connection connection =
-                     DriverManager.getConnection("jdbc:h2:~/customer", "", "" )) {
-            System.out.println(connection.isValid(1000));
+                     DriverManager.getConnection("jdbc:h2:~/IdeaProjects/customers", "", "" )) {
+            System.out.println(connection.isValid(1000));   //prints 'true' if connection is established
+
             Statement statement = connection.createStatement();
+
+                            //This works
+//            statement.executeUpdate("INSERT INTO Customers " + "VALUES (5, 'Mike', 'Tyson')");
+//
+//            resultSet = statement.executeQuery("SELECT * FROM CUSTOMERS");
+//            while (resultSet.next()) {
+//                System.out.println("\n");
+//                System.out.println(resultSet.getString("FIRSTNAME"));
+//                System.out.println(resultSet.getString("LASTNAME"));
+//            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
-                                  // C-R-U-D
+                                                  // C-R-U-D
     // Method to create customer
-    public void createCustomer (int id, String firstName, String lastName, Connection connection ) throws SQLException {
+    public void createCustomer(int id, String firstName, String lastName, Connection connection) throws SQLException {
 
-
-        PreparedStatement stmt = connection.prepareStatement("INSERT into customers values (?,?,?)");
+        PreparedStatement stmt = connection.prepareStatement("INSERT INTO customers VALUES (?,?,?)");
 
         stmt.setInt(1, 22);
         stmt.setString(2, "James");

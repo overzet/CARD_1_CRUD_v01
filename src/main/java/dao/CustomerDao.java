@@ -1,27 +1,33 @@
 package dao;
 
-public class CustomerDao {}
+import model.Customer;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CustomerDao {
 
 
+    // C-R-U-D
 
-     /*   // C-R-U-D
+    // Method to create customer
+    public void addUser(int id, String firstName, String lastName) throws SQLException {
 
-        // Method to create customer
-        public void createCustomer ( int id, String firstName, String lastName) throws SQLException {
+        PreparedStatement stmt = getConnection().prepareStatement("INSERT into CUSTOMERS values (?,?,?)");
 
-            PreparedStatement stmt = getConnection().prepareStatement("INSERT into CUSTOMERS values (?,?,?)");
+        stmt.setInt(1, id);
+        stmt.setString(2, firstName);
+        stmt.setString(3, lastName);
 
-            stmt.setInt(1, id);
-            stmt.setString(2, firstName);
-            stmt.setString(3, lastName);
+        int insertion = stmt.executeUpdate();
 
-            int insertion = stmt.executeUpdate();
-
-            if (insertion != 0) {
-                System.out.println("Inserted");
-            } else {
-                System.out.println("not Inserted");
-            }
+        if (insertion != 0) {
+            System.out.println("Inserted");
+        } else {
+            System.out.println("not Inserted");
         }
     }
 
@@ -60,7 +66,7 @@ public class CustomerDao {}
                 String lastName = rs.getString("lastName");
 
                 // Display values
-                customers.add(new Customer(id,firstName,lastName));
+                customers.add(new Customer(id, firstName, lastName));
 
             }
             // STEP 5: Clean-up environment
@@ -70,7 +76,6 @@ public class CustomerDao {}
         }
         return customers;
     }
-
 
 
     // Method to delete customer
@@ -111,6 +116,5 @@ public class CustomerDao {}
 
     public void saveCustomer(Customer customer) {
 
-        }
     }
-*/
+}

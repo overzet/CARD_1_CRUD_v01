@@ -1,0 +1,34 @@
+                                        Specifications
+
+                                    TRAINING CARD 1 CRUD with SQL
+
+Managing a database with one table :
+
+        Customer, with fields ID, first name, last name Perform CRUD operations on the data
+
+        Show the content of the table with an URL
+
+        No need to manage security (login, ...)
+
+
+Techniques :
+
+        H2 database management system
+
+        Eclipse project with Maven for building the app and managing dependencies JDBC / SQL to access the data
+
+
+Aim :
+
+        Build a project with maven
+        Design a basic database management project with separated layers Use a simple RDBMS
+
+
+Duration :
+
+        1 week
+
+
+Questions :
+
+        What are the basic maven commands to build and deploy a project ? What is the interest of using H2 ?
