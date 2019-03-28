@@ -17,14 +17,14 @@ public class DbAccess {
             Statement statement = connection.createStatement();
 
                             //This works
-//            statement.executeUpdate("INSERT INTO Customers " + "VALUES (5, 'Mike', 'Tyson')");
-//
-//            resultSet = statement.executeQuery("SELECT * FROM CUSTOMERS");
-//            while (resultSet.next()) {
-//                System.out.println("\n");
-//                System.out.println(resultSet.getString("FIRSTNAME"));
-//                System.out.println(resultSet.getString("LASTNAME"));
-//            }
+            statement.executeUpdate("INSERT INTO Customers " + "VALUES (5, 'Mike', 'Tyson')");
+
+            resultSet = statement.executeQuery("SELECT * FROM CUSTOMERS");
+            while (resultSet.next()) {
+                System.out.println("\n");
+                System.out.println(resultSet.getString("FIRSTNAME"));
+                System.out.println(resultSet.getString("LASTNAME"));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
